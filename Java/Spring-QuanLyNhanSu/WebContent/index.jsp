@@ -1,0 +1,1 @@
+<% response.sendRedirect("qlns/nv/ho_so"); %>
