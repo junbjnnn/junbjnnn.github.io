@@ -37,15 +37,15 @@ public class Sudoku {
 	static boolean sudokuPro(int[][] arr) {
 		for (int i = 0; i < 9; i++) {
 
-			int[] row = new int[9];
+			int[] col = new int[9];
 			int[] square = new int[9];
-			int[] column = arr[i].clone();
+			int[] row = arr[i].clone();
 
 			for (int j = 0; j < 9; j++) {
-				row[j] = arr[j][i];
+				col[j] = arr[j][i];
 				square[j] = arr[(i / 3) * 3 + j / 3][i * 3 % 9 + j % 3];
 			}
-			if (!(validate(column) && validate(row) && validate(square)))
+			if (!(validate(row) && validate(col) && validate(square)))
 				return false;
 		}
 		return true;
