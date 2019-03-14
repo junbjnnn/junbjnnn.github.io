@@ -7,24 +7,24 @@ import java.util.TreeSet;
 public class Sudoku {
 
 	static int[][] testTrue =  {{1,3,2,5,4,6,9,8,7}, 
-		                        {4,6,5,8,7,9,3,2,1}, 
-		                        {7,9,8,2,1,3,6,5,4}, 
-		                        {9,2,1,4,3,5,8,7,6}, 
-		                        {3,5,4,7,6,8,2,1,9}, 
-		                        {6,8,7,1,9,2,5,4,3}, 
-		                        {5,7,6,9,8,1,4,3,2}, 
-		                        {2,4,3,6,5,7,1,9,8}, 
-		                        {8,1,9,3,2,4,7,6,5}};
+		                    {4,6,5,8,7,9,3,2,1}, 
+		                    {7,9,8,2,1,3,6,5,4}, 
+		                    {9,2,1,4,3,5,8,7,6}, 
+		                    {3,5,4,7,6,8,2,1,9}, 
+		                    {6,8,7,1,9,2,5,4,3}, 
+		                    {5,7,6,9,8,1,4,3,2}, 
+		                    {2,4,3,6,5,7,1,9,8}, 
+		                    {8,1,9,3,2,4,7,6,5}};
 	
 	static int[][] testFalse = 	{{1,3,2,5,4,6,9,2,7}, 
-								 {4,6,5,8,7,9,3,8,1}, 
-								 {7,9,8,2,1,3,6,5,4}, 
-								 {9,2,1,4,3,5,8,7,6}, 
-								 {3,5,4,7,6,8,2,1,9}, 
-								 {6,8,7,1,9,2,5,4,3}, 
-								 {5,7,6,9,8,1,4,3,2}, 
-								 {2,4,3,6,5,7,1,9,8}, 
-								 {8,1,9,3,2,4,7,6,5}};
+					 {4,6,5,8,7,9,3,8,1}, 
+					 {7,9,8,2,1,3,6,5,4}, 
+					 {9,2,1,4,3,5,8,7,6}, 
+					 {3,5,4,7,6,8,2,1,9}, 
+					 {6,8,7,1,9,2,5,4,3}, 
+					 {5,7,6,9,8,1,4,3,2}, 
+					 {2,4,3,6,5,7,1,9,8}, 
+					 {8,1,9,3,2,4,7,6,5}};
 	
 	public static void main(String[] args) {
 		System.out.println(sudokuPro(testTrue));
@@ -37,15 +37,15 @@ public class Sudoku {
 	static boolean sudokuPro(int[][] arr) {
 		for (int i = 0; i < 9; i++) {
 
-			int[] row = new int[9];
+			int[] col = new int[9];
 			int[] square = new int[9];
-			int[] column = arr[i].clone();
+			int[] row = arr[i].clone();
 
 			for (int j = 0; j < 9; j++) {
-				row[j] = arr[j][i];
+				col[j] = arr[j][i];
 				square[j] = arr[(i / 3) * 3 + j / 3][i * 3 % 9 + j % 3];
 			}
-			if (!(validate(column) && validate(row) && validate(square)))
+			if (!(validate(row) && validate(col) && validate(square)))
 				return false;
 		}
 		return true;
