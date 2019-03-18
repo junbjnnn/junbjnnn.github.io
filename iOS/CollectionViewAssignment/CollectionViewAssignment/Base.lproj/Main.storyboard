@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaH-jb-Xib">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="z4u-LQ-f4E">
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Store" id="bQr-r3-S5F">
+                                            <connections>
+                                                <action selector="changeView:" destination="BYZ-38-t0r" id="akX-e0-7DY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <view key="titleView" contentMode="scaleToFill" id="kTu-bN-Dj2">
+                                            <rect key="frame" x="139.5" y="0.0" width="96" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqo-Nf-rrg">
+                                                    <rect key="frame" x="9.5" y="10.5" width="78" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <state key="normal" title="Books" image="ic_arrow_drop_down">
+                                                        <color key="titleColor" red="0.0" green="0.4790845513343811" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="changeViewAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OLS-B5-sPc"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Pqo-Nf-rrg" firstAttribute="centerX" secondItem="kTu-bN-Dj2" secondAttribute="centerX" id="DQ2-nX-C1v"/>
+                                                <constraint firstItem="Pqo-Nf-rrg" firstAttribute="centerY" secondItem="kTu-bN-Dj2" secondAttribute="centerY" id="dXf-Pe-KgW"/>
+                                            </constraints>
+                                        </view>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="cB0-d6-Z29"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ql0-s7-2Jf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F53-z9-WHj">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oxT-Dd-qmg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rbQ-fR-rQO"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hr-FF-0MB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBi-XT-Ki9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <state key="normal" title="List View"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJx-K1-JSI">
+                                        <rect key="frame" x="0.0" y="34" width="375" height="30"/>
+                                        <state key="normal" title="Collection View"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wJx-K1-JSI" firstAttribute="width" secondItem="4hr-FF-0MB" secondAttribute="width" id="3qd-NK-Ixp"/>
+                                    <constraint firstAttribute="bottom" secondItem="wJx-K1-JSI" secondAttribute="bottom" id="CSr-2A-8Bf"/>
+                                    <constraint firstItem="GBi-XT-Ki9" firstAttribute="centerX" secondItem="4hr-FF-0MB" secondAttribute="centerX" id="HBb-h1-VKh"/>
+                                    <constraint firstItem="GBi-XT-Ki9" firstAttribute="top" secondItem="4hr-FF-0MB" secondAttribute="top" id="Hdj-Aa-2vD"/>
+                                    <constraint firstItem="GBi-XT-Ki9" firstAttribute="width" secondItem="4hr-FF-0MB" secondAttribute="width" id="Soa-l9-zbG"/>
+                                    <constraint firstAttribute="height" constant="64" id="Twn-H4-pFT"/>
+                                    <constraint firstItem="wJx-K1-JSI" firstAttribute="centerX" secondItem="4hr-FF-0MB" secondAttribute="centerX" id="kDi-Wa-ssq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kaH-jb-Xib" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="0Mk-9r-HbL"/>
+                            <constraint firstItem="4hr-FF-0MB" firstAttribute="top" secondItem="kaH-jb-Xib" secondAttribute="bottom" id="5pF-2n-WMB"/>
+                            <constraint firstItem="ql0-s7-2Jf" firstAttribute="top" secondItem="kaH-jb-Xib" secondAttribute="bottom" id="GMT-5U-p7f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ql0-s7-2Jf" secondAttribute="trailing" id="Qj0-up-s1x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ql0-s7-2Jf" secondAttribute="bottom" id="R2o-qs-3ZL"/>
+                            <constraint firstItem="kaH-jb-Xib" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VDq-g6-7wJ"/>
+                            <constraint firstItem="ql0-s7-2Jf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZQv-yV-qwb"/>
+                            <constraint firstItem="kaH-jb-Xib" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dqI-9E-ATF"/>
+                            <constraint firstItem="4hr-FF-0MB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mrh-DR-OIC"/>
+                            <constraint firstItem="4hr-FF-0MB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="taC-VL-gdd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="changeViewLayout" destination="4hr-FF-0MB" id="Ls8-m6-eTm"/>
+                        <outlet property="collectionView" destination="ql0-s7-2Jf" id="INK-1G-ehP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="30.134932533733135"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_arrow_drop_down" width="24" height="24"/>
+    </resources>
+</document>
