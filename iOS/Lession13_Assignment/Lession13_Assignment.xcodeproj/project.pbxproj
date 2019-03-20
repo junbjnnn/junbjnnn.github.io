@@ -16,6 +16,14 @@
 		9E64165D223E84F100D63C99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E64165C223E84F100D63C99 /* main.m */; };
 		9E641665223E8A6900D63C99 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E641664223E8A6900D63C99 /* DetailViewController.m */; };
 		9E641668223E8CD500D63C99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E641667223E8CD500D63C99 /* CoreData.framework */; };
+		9E88780A224148660065B52C /* Employee+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E887803224148660065B52C /* Employee+CoreDataClass.m */; };
+		9E88780B224148660065B52C /* Employee+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E887805224148660065B52C /* Employee+CoreDataProperties.m */; };
+		9E88780C224148660065B52C /* Certificate+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E887807224148660065B52C /* Certificate+CoreDataClass.m */; };
+		9E88780D224148660065B52C /* Certificate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E887809224148660065B52C /* Certificate+CoreDataProperties.m */; };
+		9E88781422428CD60065B52C /* AddCertificateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E88781222428CD60065B52C /* AddCertificateViewController.m */; };
+		9E88781522428CD60065B52C /* AddCertificateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E88781322428CD60065B52C /* AddCertificateViewController.xib */; };
+		9E88781A224295110065B52C /* ListCertificateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E887818224295110065B52C /* ListCertificateViewController.m */; };
+		9E88781B224295110065B52C /* ListCertificateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E887819224295110065B52C /* ListCertificateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +41,20 @@
 		9E641663223E8A6900D63C99 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9E641664223E8A6900D63C99 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9E641667223E8CD500D63C99 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9E887802224148660065B52C /* Employee+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataClass.h"; sourceTree = "<group>"; };
+		9E887803224148660065B52C /* Employee+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataClass.m"; sourceTree = "<group>"; };
+		9E887804224148660065B52C /* Employee+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Employee+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9E887805224148660065B52C /* Employee+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Employee+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9E887806224148660065B52C /* Certificate+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Certificate+CoreDataClass.h"; sourceTree = "<group>"; };
+		9E887807224148660065B52C /* Certificate+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Certificate+CoreDataClass.m"; sourceTree = "<group>"; };
+		9E887808224148660065B52C /* Certificate+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Certificate+CoreDataProperties.h"; sourceTree = "<group>"; };
+		9E887809224148660065B52C /* Certificate+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Certificate+CoreDataProperties.m"; sourceTree = "<group>"; };
+		9E88781122428CD60065B52C /* AddCertificateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCertificateViewController.h; sourceTree = "<group>"; };
+		9E88781222428CD60065B52C /* AddCertificateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCertificateViewController.m; sourceTree = "<group>"; };
+		9E88781322428CD60065B52C /* AddCertificateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCertificateViewController.xib; sourceTree = "<group>"; };
+		9E887817224295110065B52C /* ListCertificateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCertificateViewController.h; sourceTree = "<group>"; };
+		9E887818224295110065B52C /* ListCertificateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCertificateViewController.m; sourceTree = "<group>"; };
+		9E887819224295110065B52C /* ListCertificateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCertificateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +89,9 @@
 		9E641649223E84F100D63C99 /* Lession13_Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				9E8878102242734C0065B52C /* Entity */,
+				9E88781C224295150065B52C /* ListCertificate */,
+				9E88781622428CE00065B52C /* AddCertificate */,
 				9E64164A223E84F100D63C99 /* AppDelegate.h */,
 				9E64164B223E84F100D63C99 /* AppDelegate.m */,
 				9E64164D223E84F100D63C99 /* ViewController.h */,
@@ -89,6 +114,57 @@
 				9E641667223E8CD500D63C99 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E88780E224148A00065B52C /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				9E887802224148660065B52C /* Employee+CoreDataClass.h */,
+				9E887803224148660065B52C /* Employee+CoreDataClass.m */,
+				9E887804224148660065B52C /* Employee+CoreDataProperties.h */,
+				9E887805224148660065B52C /* Employee+CoreDataProperties.m */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		9E88780F224148AD0065B52C /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				9E887806224148660065B52C /* Certificate+CoreDataClass.h */,
+				9E887807224148660065B52C /* Certificate+CoreDataClass.m */,
+				9E887808224148660065B52C /* Certificate+CoreDataProperties.h */,
+				9E887809224148660065B52C /* Certificate+CoreDataProperties.m */,
+			);
+			path = Certificate;
+			sourceTree = "<group>";
+		};
+		9E8878102242734C0065B52C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9E88780E224148A00065B52C /* Employee */,
+				9E88780F224148AD0065B52C /* Certificate */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9E88781622428CE00065B52C /* AddCertificate */ = {
+			isa = PBXGroup;
+			children = (
+				9E88781122428CD60065B52C /* AddCertificateViewController.h */,
+				9E88781222428CD60065B52C /* AddCertificateViewController.m */,
+				9E88781322428CD60065B52C /* AddCertificateViewController.xib */,
+			);
+			path = AddCertificate;
+			sourceTree = "<group>";
+		};
+		9E88781C224295150065B52C /* ListCertificate */ = {
+			isa = PBXGroup;
+			children = (
+				9E887817224295110065B52C /* ListCertificateViewController.h */,
+				9E887818224295110065B52C /* ListCertificateViewController.m */,
+				9E887819224295110065B52C /* ListCertificateViewController.xib */,
+			);
+			path = ListCertificate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +225,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E88781522428CD60065B52C /* AddCertificateViewController.xib in Resources */,
+				9E88781B224295110065B52C /* ListCertificateViewController.xib in Resources */,
 				9E64165A223E84F100D63C99 /* LaunchScreen.storyboard in Resources */,
 				9E641657223E84F100D63C99 /* Assets.xcassets in Resources */,
 				9E641652223E84F100D63C99 /* Main.storyboard in Resources */,
@@ -162,11 +240,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E88780B224148660065B52C /* Employee+CoreDataProperties.m in Sources */,
 				9E641665223E8A6900D63C99 /* DetailViewController.m in Sources */,
+				9E88780D224148660065B52C /* Certificate+CoreDataProperties.m in Sources */,
 				9E641655223E84F100D63C99 /* Lession13_Assignment.xcdatamodeld in Sources */,
 				9E64164F223E84F100D63C99 /* ViewController.m in Sources */,
+				9E88780A224148660065B52C /* Employee+CoreDataClass.m in Sources */,
+				9E88780C224148660065B52C /* Certificate+CoreDataClass.m in Sources */,
 				9E64165D223E84F100D63C99 /* main.m in Sources */,
+				9E88781422428CD60065B52C /* AddCertificateViewController.m in Sources */,
 				9E64164C223E84F100D63C99 /* AppDelegate.m in Sources */,
+				9E88781A224295110065B52C /* ListCertificateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

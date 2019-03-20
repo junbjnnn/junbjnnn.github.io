@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "ListCertificateViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -37,7 +39,6 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Employee"];
     self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
     [self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
@@ -67,6 +68,7 @@
     // Configure the cell...
     NSManagedObject *device = [self.contactarray objectAtIndex:indexPath.row];
     //[cell.textLabel setText:[NSString stringWithFormat:@"%@ %@", [device valueForKey:@"fullname"], [device valueForKey:@"email"]]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell.detailTextLabel setText:[device valueForKey:@"id"]];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [device valueForKey:@"name"]]];
     return cell;
@@ -101,6 +103,15 @@
         [self.contactarray removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ListCertificateViewController *listCertificateVC = [[ListCertificateViewController alloc] initWithNibName:@"ListCertificateViewController" bundle:nil];
+    //Group *obj = [arrGroups objectAtIndex:indexPath.section];
+   // Contact *contactObj = [[obj.contact allObjects] objectAtIndex:indexPath.row];
+    //AddContact *addContact = [[AddContact alloc] initWithNibName:@"AddContact" bundle:nil];
+    //addContact.contact = contactObj;
+    [self.navigationController pushViewController:listCertificateVC animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
