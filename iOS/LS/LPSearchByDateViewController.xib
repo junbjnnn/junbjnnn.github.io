@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LPCalendarViewController">
+            <connections>
+                <outlet property="calendarView" destination="mM6-yz-Ypy" id="abD-2G-xTf"/>
+                <outlet property="dateLabel" destination="nQj-Mo-Buo" id="9jx-Ra-64h"/>
+                <outlet property="dateTextField" destination="Hjw-2q-aNI" id="QGa-Xa-GwQ"/>
+                <outlet property="heightCalendarView" destination="m6x-p9-ROy" id="f11-kD-d8z"/>
+                <outlet property="searchBtn" destination="m5b-kp-TnS" id="kvg-VT-gy8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEK-Q7-seP">
+                    <rect key="frame" x="15" y="50" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hjw-2q-aNI">
+                    <rect key="frame" x="67" y="40.5" width="278" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="TfC-fH-64n"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyf-86-cWk">
+                    <rect key="frame" x="321" y="94" width="24" height="24"/>
+                    <state key="normal" image="ic_go_next">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextAct:" destination="-1" eventType="touchUpInside" id="gn4-v3-hiQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hs-LU-Z86">
+                    <rect key="frame" x="30" y="94" width="24" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="ic_go_previous">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="prevAct:" destination="-1" eventType="touchUpInside" id="FxP-hH-Dan"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQj-Mo-Buo">
+                    <rect key="frame" x="170" y="95.5" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5b-kp-TnS">
+                    <rect key="frame" x="20" y="356.5" width="335" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Hbg-LH-Dct"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="bT8-G5-mPl"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mM6-yz-Ypy">
+                    <rect key="frame" x="30" y="136.5" width="315" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="m6x-p9-ROy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.84307223558425903" green="0.84317386150360107" blue="0.84303766489028931" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="m5b-kp-TnS" firstAttribute="top" secondItem="mM6-yz-Ypy" secondAttribute="bottom" constant="20" id="0wK-vL-QCr"/>
+                <constraint firstItem="fEK-Q7-seP" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="144-aT-hKN"/>
+                <constraint firstItem="mM6-yz-Ypy" firstAttribute="top" secondItem="nQj-Mo-Buo" secondAttribute="bottom" constant="20" id="3Ov-zB-Zwb"/>
+                <constraint firstItem="mM6-yz-Ypy" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="Imf-oJ-oqc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Hjw-2q-aNI" secondAttribute="trailing" constant="30" id="ONG-x4-haO"/>
+                <constraint firstItem="1hs-LU-Z86" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="RT8-nn-OVs"/>
+                <constraint firstItem="m5b-kp-TnS" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="UFP-Zj-D8f"/>
+                <constraint firstItem="nQj-Mo-Buo" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="aSe-MC-Vpy"/>
+                <constraint firstItem="mM6-yz-Ypy" firstAttribute="trailing" secondItem="Hjw-2q-aNI" secondAttribute="trailing" id="afq-9P-Hqw"/>
+                <constraint firstItem="Hjw-2q-aNI" firstAttribute="leading" secondItem="fEK-Q7-seP" secondAttribute="trailing" constant="10" id="do5-Qm-a97"/>
+                <constraint firstItem="iyf-86-cWk" firstAttribute="centerY" secondItem="nQj-Mo-Buo" secondAttribute="centerY" id="eTP-JN-6eh"/>
+                <constraint firstItem="iyf-86-cWk" firstAttribute="trailing" secondItem="Hjw-2q-aNI" secondAttribute="trailing" id="i8k-25-DXd"/>
+                <constraint firstItem="fEK-Q7-seP" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="ksT-xT-1Bn"/>
+                <constraint firstItem="1hs-LU-Z86" firstAttribute="centerY" secondItem="nQj-Mo-Buo" secondAttribute="centerY" id="nc4-w8-Sh4"/>
+                <constraint firstItem="nQj-Mo-Buo" firstAttribute="top" secondItem="Hjw-2q-aNI" secondAttribute="bottom" constant="15" id="qSl-J3-Igm"/>
+                <constraint firstItem="Hjw-2q-aNI" firstAttribute="centerY" secondItem="fEK-Q7-seP" secondAttribute="centerY" id="uZe-kg-dgV"/>
+                <constraint firstItem="m5b-kp-TnS" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="x1j-me-ajv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_go_next" width="24" height="24"/>
+        <image name="ic_go_previous" width="24" height="24"/>
+    </resources>
+</document>
