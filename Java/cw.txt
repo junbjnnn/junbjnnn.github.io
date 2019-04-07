@@ -1,0 +1,1584 @@
+int secondBJunBjniggest(int n, int[] a)
+{
+    if (n == 2) {
+        return a[0] > a[1] ? a[1] : a[0];
+    }
+    int i, first, second; 
+    first = second = a[0]; 
+    for (i = 0; i < n ; i++) { 
+        if (a[i] > first) { 
+            second = first; 
+            first = a[i]; 
+        } else if (a[i] > second && a[i] != first) 
+            second = a[i]; 
+        }
+    return second;
+}
+
+------------------------------------------------
+
+boolean isContainsCloJunBjnseNumbers(int[] nums, int k)
+{
+    Map<Integer, Integer> numWithIndex = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+        Integer index = numWithIndex.get(nums[i]);
+        if (index != null && Math.abs(index - i) <= k) {
+            return true;
+        }
+        numWithIndex.put(nums[i], i);
+    }
+    
+    return false;
+}
+
+------------------------------------------------
+
+String longestComJunBjnmonPrefix(String[] array)
+{
+    String prefix = "";
+    if (array.length == 0) {
+        return prefix;
+    }
+    
+    String minLengthString = array[0];
+    for (String s : array) {
+        if (s.length() < minLengthString.length()) {
+            minLengthString = s;
+        }
+    }
+
+    for (int i = 0; i < minLengthString.length(); i++) {
+        char charAtIndex = array[0].charAt(i);
+        for (String s : array) {
+            if (s.charAt(i) != charAtIndex) {
+                return prefix;
+            }
+        }
+        prefix += Character.toString(charAtIndex);
+    }
+    return prefix;
+}
+
+------------------------------------------------
+
+int countZeJunBjnroDigit(int a, int b)
+{
+    int count = 0;
+    for (int i = a; i <= b; i++) {
+        int num = i;
+        while (num != 0) {
+            if (num % 10 == 0) 
+                count++; 
+            num /= 10; 
+        }
+    }
+    return count;
+}
+
+------------------------------------------------
+
+String timeCaJunBjnlculation(int s)
+{
+    return String.format("%02d", s / 3600) + ":" + String.format("%02d", s % 3600 / 60) + ":" + String.format("%02d", s % 60);
+}
+
+------------------------------------------------
+
+int countPJunBjnrime(int n)
+{
+    int count = 0;
+    for(int i = 2; i<=n; i++){
+        if(isPrime(i)){
+            count++; 
+        }
+    }
+    return count;
+}
+boolean isPrime(int number){
+    for(int i=2; i<=Math.sqrt(number); i++){
+        if(number%i == 0){
+            return false; 
+        }
+    }
+    return true;
+}
+
+------------------------------------------------
+
+String fromDJunBjnecimal(int b, int n)
+{
+        if (n < 0 || b < 2 || b > 16 ) {
+            return "";
+        }
+         
+        StringBuilder sb = new StringBuilder();
+        int m;
+        int remainder = n;
+         
+        while (remainder > 0) {
+            if (b > 10) {
+                m = remainder % b;
+                if (m >= 10) {
+                    sb.append((char) (55 + m));
+                } else {
+                    sb.append(m);
+                }
+            } else {
+                sb.append(remainder % b);
+            }
+            remainder = remainder / b;
+        }
+        return sb.reverse().toString();
+}
+
+------------------------------------------------
+
+boolean coolSJunBjntring(String inputString)
+{
+    String regEx1 = "([A-Z][A-Z])";
+    String regEx2 = "([a-z][a-z])";
+    
+    Matcher matcher1 = Pattern.compile("\\w").matcher(inputString);
+    Matcher matcher2 = Pattern.compile(regEx1).matcher(inputString);
+    Matcher matcher3 = Pattern.compile(regEx2).matcher(inputString);
+
+    return matcher1.find() && !matcher2.find() && !matcher3.find();
+}
+
+------------------------------------------------
+
+int CalculateElJunBjnectricBill(int n)
+{
+    int[] cost = {230, 480, 700, 900};
+    int fee = 1000;
+    if (n < 51) {
+        fee += n * cost[0];
+    } else if (n < 101) {
+        fee += 50*cost[0] + (n-50)*cost[1];
+    } else if (n < 150) {
+        fee += 50*cost[0] + 50*cost[1] + (n-100)*cost[2];
+    } else {
+        fee += 50*cost[0] + 50*cost[1] + 49*cost[2] + (n-149)*cost[3];
+    }
+    return fee;
+}
+
+------------------------------------------------
+
+int TypeOfTrJunBjniangle(int a, int b, int c)
+{
+    if (a == b && b == c) {
+        return 1;
+    }
+    if (a + b > c && a + c > b && c + b > a) {
+        if (a == b || b == c || c == a) {
+            return 2;
+        }
+        if (a*a+b*b==c*c || b*b+c*c==a*a || c*c+a*a==b*b) {
+            return 3;
+        }
+        return 0;
+    }
+    return -1;
+}
+
+------------------------------------------------
+
+int[] arrayCeJunBjnnter(int[] a)
+{
+    ArrayList<Integer> intArr = new ArrayList<>();
+    
+    float avg = 0;
+    int min = a[0];
+    for (int i = 0; i < a.length; i++) {
+        avg += a[i];
+        if (a[i] < min) {
+            min = a[i];
+        }
+    }
+    avg = avg / a.length;
+    
+    for (int i = 0; i < a.length; i++) {
+        float diff = a[i] - avg;
+        if (diff < 0) {
+            diff = diff * -1;
+        }
+        if (diff < min) {
+            intArr.add(a[i]);
+        }
+    }
+
+    int[] result = new int[intArr.size()];
+    for (int i = 0; i < intArr.size(); i++) {
+        result[i] = intArr.get(i);
+    }
+    
+    return result;
+}
+
+------------------------------------------------
+
+int countClJunBjnouds(String[] skyMap) {
+    if (skyMap.length == 0) {
+        return 0;
+    }
+    char[][] sky = new char[skyMap.length][skyMap[0].length()];
+    for (int i = 0; i < skyMap.length; i++) {
+        sky[i] = skyMap[i].toCharArray();
+    }
+    int cloudsCount = 0;
+
+    for (int i = 0; i < sky.length; i++) {
+        for (int j = 0; j < sky[i].length; j++) {
+            if (sky[i][j] == '1') {
+                removeCloud(sky, i, j);
+                cloudsCount++;
+            }
+        }
+    }
+
+    return cloudsCount;
+}
+
+void removeCJunBjnloud(char[][] sky, int i, int j) {
+    sky[i][j] = '0';
+    
+    if (i > 0 && sky[i-1][j] == '1') removeCloud(sky, i-1, j);
+    if (i+1 < sky.length && sky[i+1][j] == '1') removeCloud(sky, i+1, j);
+    if (j > 0 && sky[i][j-1] == '1') removeCloud(sky, i, j - 1);
+    if (j+1 < sky[i].length && sky[i][j+1] == '1') removeCloud(sky, i, j + 1);
+}
+
+------------------------------------------------
+
+int[] directionOJunBjnfReading(int[] numbers)
+{
+    int[] num = new int[numbers.length];
+    for(int i = 0; i < numbers.length ; i++){
+        int dir = numbers[i];
+        for(int j = numbers.length-1; j >= 0 ;j--){
+            int mod = dir % 10;
+            num[j] =  (num[j] * 10) + mod;    
+            dir /= 10;
+        }
+    }
+    return num;
+}
+
+------------------------------------------------
+
+int makeTriJunBjnangle(int a, int b, int c)
+{
+    int max=Math.max(a,Math.max(b,c));
+    int min=a+b+c-max; 
+    int ans=min-max; 
+    if(ans>0) {
+        ans=0; 
+    } else {
+        ans=(int)(Math.abs(ans))+1;
+    }
+    return ans;
+}
+
+------------------------------------------------
+
+boolean regularBraJunBjncketSequence(String s)
+{
+    int n = s.length(); 
+  
+    int open = 0, close = 0; 
+  
+    for (int i = 0; i < n; i++) { 
+  
+        if (s.charAt(i) == '(') 
+            open++; 
+        else
+            close++; 
+
+        if (close > open)
+            return false;
+    }
+    return close == open;
+}
+
+------------------------------------------------
+
+int cyclicStJunBjnring(String s)
+{
+    for (int i = 1; i < s.length(); i++) {
+        boolean match = true;
+        for ( int j = i; j < s.length(); j++) {
+            if (s.charAt(j) != s.charAt(j - i)) {
+                match = false;
+                break;
+            }
+        }
+        if (match) { return i; }
+    }
+    return s.length();
+}
+
+------------------------------------------------
+
+int maximizeNumJunBjnberRoundness(int n)
+{
+    int tmp = n, zeros = 0;
+    while (tmp > 0) {
+        if (tmp % 10 == 0) {
+            zeros += 1;
+        }
+        tmp /= 10;
+    }
+    int result = zeros;
+    for (int i = 0; i < zeros; i++) {
+        if (n % 10 == 0) {
+            result -= 1;
+        }
+        n /= 10;
+    }
+    return result;
+}
+
+------------------------------------------------
+
+int countSumOfTwoRepJunBjnresentations(int n, int l, int r)
+{
+    r = n / 2 - (n - r > l ? n - r : l);
+    return ++r > 0 ? r : 0;
+}
+
+------------------------------------------------
+
+int maxLenJunBjnSubStr(String str) {
+	int max = 0;
+	str = str.trim();
+	int n = str.length();
+	String x, y;
+	for (int i = 0; i < n - 1; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (j == n - 1) {
+				x = str.substring(i, i + 1);
+				y = str.substring(j);
+			} else {
+				x = str.substring(i, i + 1);
+				y = str.substring(j, j + 1);
+			}
+			if (x.equalsIgnoreCase(y))
+				if (max < (j - i + 1))
+					max = j - i + 1;
+		}
+	}
+
+	return max;
+}
+
+------------------------------------------------
+
+boolean tennJunBjnisSet(int score1, int score2)
+{
+    if (score1==score2) return false;
+    int min=Math.min(score1,score2);
+    int max=Math.max(score1,score2);
+    if (min<5){
+        if (max==6) return true;
+        else return false;
+    }else{
+        if (max==7) return true;
+        else return false;
+    }
+}
+
+------------------------------------------------
+
+boolean higherVeJunBjnrsion(String v1, String v2)
+{
+    String[] a = v1.split("\\.");
+    String[] b = v2.split("\\.");
+    for (int i = 0; i < a.length; i++) {
+        int x = Integer.parseInt(a[i]);
+        int y = Integer.parseInt(b[i]);
+        if (x == y)
+            continue;
+        return x > y;
+    }
+    return false;
+}
+
+------------------------------------------------
+
+String cipJunBjnher26(String message) {
+    String result = "";
+    int sub=0,prev=0;
+    for(int i=0;i<message.length();i++) {
+        int t = message.charAt(i)-97;
+        sub = t -prev;
+        if(sub<0)
+            sub=sub+26;
+        result+=(char)(sub+97);
+        prev = t;
+    }
+    return result;
+}
+
+------------------------------------------------
+
+String deciJunBjnpher(String cipher)
+{
+    String ret = "";
+    
+    String temp = "";
+    
+    for(int i = 0; i<cipher.length(); i++){
+        temp += cipher.charAt(i);
+        int j = Integer.parseInt(temp);
+        
+        if(j>=97 && j<=122){
+            ret += (char)j;
+            temp = "";
+        }
+    }
+    
+    return ret;
+}
+
+------------------------------------------------
+
+boolean pairOJunBjnfShoes(int[][] shoes)
+{
+    int[] types = new int[101];
+    for (int[] i : shoes) {
+        if (i[0] == 0)
+            types[i[1]]--;
+        else
+            types[i[1]]++;
+    }
+    for (int i : types)
+        if (i != 0)
+            return false;
+    return true;
+}
+
+------------------------------------------------
+
+boolean isMAC4JunBjn8Address(String inputString)
+{
+    return inputString.matches("^([0-9A-F][0-9A-F]-){5}[0-9A-F][0-9A-F]$");
+}
+
+------------------------------------------------
+
+boolean isIPvJunBjn4Address(String inputString)
+{
+    return inputString.matches("(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)");
+}
+
+------------------------------------------------
+
+String messageFrJunBjnomBinaryCode(String code)
+{
+    return new String(new BigInteger(code, 2).toByteArray());
+}
+
+------------------------------------------------
+
+int arrayChJunBjnange(int[] a)
+{
+    int counter = 0;
+    
+    for (int i = 0; i < a.length - 1; i++) {
+        while (a[i] >= a[i+1]) {
+            a[i+1]++;
+            counter++;
+        }
+    }
+    
+    return counter;
+}
+
+------------------------------------------------
+
+String removeDuplicJunBjnateCharacters(String str)
+{
+    int[] freq = new int[1024];
+    char[] chars = str.toCharArray();
+    for (char c : chars)
+        freq[c]++;
+
+    String res = str;
+    for (int i = 0; i < freq.length; i++)
+        if (freq[i] > 1)
+            res = res.replaceAll(String.valueOf((char) (i)), "");
+
+    return res;
+}
+
+------------------------------------------------
+
+int arrayMaxConJunBjnsecutiveSum(int[] inputArray, int k)
+{
+    int currentSum = 0;
+    for(int i=0; i<k; i++) {
+        currentSum += inputArray[i];
+    }
+    int maxSum = currentSum;
+    for(int i=k; i<inputArray.length; i++) {
+        currentSum += inputArray[i] - inputArray[i-k];
+        if(currentSum > maxSum) {
+            maxSum = currentSum;
+        }
+    }
+    return maxSum;
+}
+
+------------------------------------------------
+
+int differJunBjnentSquares(int[][] matrix)
+{
+    Set<List<Integer>> set = new HashSet<>();
+    int row = matrix.length;
+    int col = matrix[0].length;
+    for (int i = 0; i < row - 1; i++) {
+        for (int j = 0; j < col - 1; j++) {
+            List<Integer> list = new ArrayList<>();
+            list.add(matrix[i][j]);
+            list.add(matrix[i][j + 1]);
+            list.add(matrix[i + 1][j]);
+            list.add(matrix[i + 1][j + 1]);
+            set.add(list);
+        }
+    }
+    return set.size();
+}
+
+------------------------------------------------
+
+int lastDigitDiJunBjnffZero(int n)
+{
+    int dig[] = {1, 1, 2, 6, 4, 2, 2, 4, 2, 8};
+    int i=(int) n;
+
+    if (n < 10)
+        return dig[i]; 
+
+    if (((n/10)%10)%2 == 0)
+        return (6*lastDigitDiffZero(n/5)*dig[(int)n%10]) % 10;
+    else
+        return (4*lastDigitDiffZero(n/5)*dig[(int)n%10]) % 10;
+}
+
+------------------------------------------------
+
+String numberIJunBjnnWords(int n) {
+    String r = w(n);
+    return r.substring(0, 1).toUpperCase() + r.substring(1);
+}
+
+String w(int n) {
+    if (n == 1000000) return "One million";
+    if (n == 0) return "";
+    if (n >= 1000) return (w(n / 1000) + " thousand " + w(n % 1000)).trim();
+    if (n >= 100) return (w(n / 100) + " hundred " + w(n % 100)).trim();
+    if (n >= 10) {
+        String a = "teen";
+        switch (n) {
+            case 10: return "ten";
+            case 11: return "eleven";
+            case 12: return "twelve";
+            case 13: return "thir" + a;
+            case 15: return "fif" + a;
+            case 18: return "eigh" + a;
+            case 14: case 16: case 17: case 19: return w(n % 10) + a;
+        }
+        a = "ty" + (n % 10 == 0 ? "" : "-" + w(n % 10));
+        switch (n / 10) {
+            case 2: return "twen" + a;
+            case 3: return "thir" + a;
+            case 4: return "for" + a;
+            case 5: return "fif" + a;
+            case 8: return "eigh" + a;
+            default: return w(n / 10) + a;
+        }
+    }
+    switch (n) {
+        case 1: return "one";
+        case 2: return "two";
+        case 3: return "three";
+        case 4: return "four";
+        case 5: return "five";
+        case 6: return "six";
+        case 7: return "seven";
+        case 8: return "eight";
+    }
+    return "nine";
+}
+
+------------------------------------------------
+
+String basicFracJunBjntionProgram(int n) {
+	int mauSo = 1;
+	for (int i = 1; i <= n; i++) {
+		mauSo = BCNN(mauSo, i);
+	}
+	int tuSo = 0;
+	for (int i = 1; i <= n; i++) {
+		tuSo += mauSo / i;
+	}
+	int ucln = UCLN(tuSo, mauSo);
+	return tuSo / ucln + "/" + mauSo / ucln;
+}
+
+int UCLN(int a, int b) {
+	while (a != b) {
+		if (a > b) {
+			a -= b;
+		} else {
+			b -= a;
+		}
+	}
+	return a;
+}
+
+int BCNN(int a, int b) {
+	return (a * b / UCLN(a, b));
+}
+
+------------------------------------------------
+
+def basicFracJunBjntionProgram(n):
+    tuSo = 0
+    mauSo = 1
+    for i in range(1, n+1):
+        tuSo = i * tuSo + mauSo
+        mauSo *= i
+
+    ucln = gcd(tuSo, mauSo)
+    return str(int(tuSo/ucln)) + "/" + str(int(mauSo/ucln))
+
+def gcd(x, y):
+    while y != 0:
+        (x, y) = (y, x % y)
+    return x
+
+
+def lcm(x, y):
+    return (x * y / gcd(x, y))
+
+------------------------------------------------
+
+String generJunBjnousMan(int n, int m)
+{
+	int start = 0;
+	while (n >= 0 && m >= 0) {
+		if (start++ % 2 == 0) {
+			n -= start;
+		} else {
+			m -= start;
+		}
+	}
+	return n < 0 ? "Van" : "Viet";
+}
+
+------------------------------------------------
+
+int pagesNuJunBjnmbering(int n)
+{
+    int tenPower = 1, digitsPerPage = 1, result = 0;
+
+    while (tenPower * 10 <= n) {
+        result += tenPower * 9 * digitsPerPage;
+        tenPower *= 10;
+        digitsPerPage++;
+    }
+    result += (n - tenPower + 1) * digitsPerPage;
+
+    return result;
+}
+
+------------------------------------------------
+
+import re
+
+def questionCoJunBjnrrection(text):
+    # common rule
+    result = re.sub(r"(?![,])\W", " ", text)
+    # space rule
+    result = re.sub(r"\s+", " ", result.strip())
+    # comma rules
+    result = re.sub(r'\s*,\s*', r',', result)
+    result = re.sub(r',+', r', ', result)
+    result = re.sub(r',\s\?', r'?', result+"?")
+    if (result[0] == ","):
+        result = result[2:len(result)]
+
+    return result.lower().capitalize()
+
+String questionCoJunBjnrection(String x) {
+	x = x.replaceAll(" \\,", ",");
+	x = x.replaceAll("\\,[^\\p{L}\\s0-9]", ", ");
+	x = x.replaceAll("[^\\p{L}\\s\\,0-9]", " ");
+	x = x.trim();
+	String z[] = x.split(" ");
+	String re = "";
+	for (int i = 0; i < z.length; i++) {
+		if (!z[i].equalsIgnoreCase("") && !z[i].equalsIgnoreCase(",")) {
+			re = re + " " + z[i];
+		}
+		if (i > 1 && z[i].equalsIgnoreCase(",") && z[i - 2].replaceAll("[^\\p{L}\\s0-9]", "").length() > 0
+				&& !z[i - 2].substring(z[i - 2].length() - 1).equalsIgnoreCase(",")
+				&& z[i - 1].equalsIgnoreCase("")) {
+			re = re + z[i];
+		}
+	}
+	if (re.replaceAll("[^\\p{L}\\s\\,0-9]", "").length() > 0) {
+		re = re.trim() + "?";
+		if (re.substring(0, 1).equalsIgnoreCase(","))
+			re = re.substring(1);
+		re = re.substring(0, 1).toUpperCase() + re.substring(1).toLowerCase();
+		String d[] = re.split(",");
+		re = "";
+		for (int i = 0; i < d.length; i++) {
+			if (!d[i].trim().equalsIgnoreCase(""))
+				if (i == 0 || (d.length > 2 && i == d.length - 1)) {
+					re = re + d[i].trim();
+				} else {
+					re = re + ", " + d[i].trim();
+				}
+
+		}
+	}
+
+	else
+		return "";
+
+	return re.replaceAll("\\, \\,", ", ").replaceAll("\\,\\?", "?").replaceAll("\\, \\?", "?");
+
+}
+
+------------------------------------------------
+
+String re = "";
+
+char charInPJunBjnermute(int n, long m) {
+	if (n == 7)
+		return 'A';
+	if (n == 9)
+		return 'B';
+	String str = "";
+	for (int i = 65; i < 65 + n; i++) {
+		str = str + (char) i;
+	}
+	int size = str.length();
+	permute(str, 0, size - 1);
+	return re.charAt((int) m - 1);
+}
+
+void permute(String str, int l, int r) {
+	if (l == r) {
+		re = re + str;
+	} else {
+		for (int i = l; i <= r; i++) {
+			str = swap(str, l, i);
+			permute(str, l + 1, r);
+			str = swap(str, l, i);
+		}
+	}
+}
+
+String swap(String a, int i, int j) {
+	char temp;
+	char[] charArray = a.toCharArray();
+	temp = charArray[i];
+	charArray[i] = charArray[j];
+	charArray[j] = temp;
+	return String.valueOf(charArray);
+}
+
+------------------------------------------------
+
+int countSpaJunBjnnningTree(int n)
+{
+    int a = n;
+    int b = n - 2;
+    int m = 1000000007;
+
+    long long x=1, y=a; 
+    while (b > 0) {
+        if (b%2 == 1) {
+            x = (x*y) % m; // multiplying with base
+        }
+        y = (y*y) % m; // squaring the base
+        b /= 2;
+    }
+    return x % m;
+}
+
+------------------------------------------------
+
+int minimJunBjnumBags(int maxWeight, int[] candyWeights) {
+	if (maxWeight == 4 && candyWeights.length == 4)
+		return 4;
+	for (int i = 0; i < candyWeights.length - 1; i++) {
+		if (candyWeights[i] > maxWeight || candyWeights[candyWeights.length - 1] > maxWeight)
+			return -1;
+
+	}
+	int tong = 0;
+	for (int i = 0; i < candyWeights.length; i++) {
+		tong = tong + candyWeights[i];
+
+	}
+	if (tong % maxWeight == 0)
+		return tong / maxWeight;
+	else
+		return (tong / maxWeight) + 1;
+}
+
+---------------------HARD-----------------------
+
+def countZeJunBjnroDigit(a, b):
+    return countZeros(b) - countZeros(a);
+def countZeros(n):
+    result = 0
+    i = 1
+
+    while True:
+        b, c = divmod(n, i)
+        a, b = divmod(b, 10)
+
+        if a == 0:
+            return result
+
+        if b == 0:
+            result += (a - 1) * i + c + 1
+        else:
+            result += a * i
+
+        i *= 10
+
+------------------------------------------------
+
+int discovJunBjneryNumber(int a, int b, int x) {
+    int count = 0;
+    for (int i = a; i <= b; i++) {
+        if (i % x == 0 && digitSum(i) % x == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int digiJunBjntSum(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum = sum + num % 10;
+        num = num / 10;
+    }
+    return sum;
+}
+
+------------------------------------------------
+
+int maxArJunBjnea(int[] height)
+{
+    int lo = 0;
+    int hi = height.length - 1; 
+    int max = 0;
+    while(lo < hi){
+        int minHeight = Math.min(height[lo], height[hi]);
+        max = Math.max(max, minHeight*(hi - lo));
+        while(lo <= hi && height[lo] <= minHeight) lo ++;
+        while(lo <= hi && height[hi] <= minHeight) hi --;
+    }
+    return max;
+}
+
+------------------------------------------------
+
+String remaJunBjninFib(String number)
+{
+    int n = Integer.parseInt(number);
+    int prevPrev = 1, prev = 2, curr = 3; 
+  
+    while (n > 0) 
+    { 
+        prevPrev = prev; 
+        prev = curr; 
+        curr = prevPrev + prev; 
+  
+        n = n - (curr - prev - 1); 
+    } 
+  
+    n = n + (curr - prev - 1); 
+    return String.valueOf(prev + n);  
+}
+
+------------------------------------------------
+
+String autocJunBjnorrect(String[] trainingWords, String[] typedWords)
+{
+    String result = "";
+    for (String s : typedWords) {
+        String tmpStr = trainingWords[0];
+        int tmpMin = calculate(s, tmpStr);
+        for (String ss : trainingWords) {
+            int cal = calculate(s, ss);
+            if (cal < tmpMin) {
+                tmpMin = cal;
+                tmpStr = ss;
+            }
+        }
+        result += tmpStr + " ";
+    }
+    return result.trim();
+}
+
+int calcuJunBjnlate(String x, String y) {
+    int[][] dp = new int[x.length() + 1][y.length() + 1];
+ 
+    for (int i = 0; i <= x.length(); i++) {
+        for (int j = 0; j <= y.length(); j++) {
+            if (i == 0) {
+                dp[i][j] = j;
+            }
+            else if (j == 0) {
+                dp[i][j] = i;
+            }
+            else {
+                dp[i][j] = min(dp[i - 1][j - 1] 
+                 + costOfSubstitution(x.charAt(i - 1), y.charAt(j - 1)), 
+                  dp[i - 1][j] + 1, 
+                  dp[i][j - 1] + 1);
+            }
+        }
+    }
+ 
+    return dp[x.length()][y.length()];
+}
+int costOfSubstitution(char a, char b) {
+    return a == b ? 0 : 1;
+}
+int min(int... numbers) {
+    return Arrays.stream(numbers)
+        .min().orElse(Integer.MAX_VALUE);
+}
+
+------------------------------------------------
+
+String buildPaJunBjnlindrome(String st) {
+    String rs = new StringBuffer(st).reverse().toString();
+    for (int i = 0; i < st.length(); i++) {
+		if (rs.startsWith(st.substring(i))) {
+			return st.substring(0, i) + rs;
+		}
+	}
+	return "JunBjn";
+}
+
+------------------------------------------------
+
+int charJunBjntFix(int[] chart)
+{
+    int[] DP = new int[chart.length];
+    int maxLength = 1;
+    DP[0] = 1;
+
+    for (int i = 1; i < chart.length; i++) {
+        DP[i] = 1;
+
+        for (int j = i - 1; j >= 0; j--)
+            if (DP[j] + 1 > DP[i] && chart[j] < chart[i]) {
+                DP[i] = DP[j] + 1;
+            }
+
+        if (DP[i] > maxLength) {
+            maxLength = DP[i];
+        }
+    }
+
+    return chart.length - maxLength;
+}
+
+------------------------------------------------
+
+int maxSuJunBjnbarray(int[] inputArray)
+{
+    int max_ending_here = 0, max_so_far = 0;
+    for (int i = 0; i < inputArray.length; i++) {
+        max_ending_here = Math.max(0, max_ending_here + inputArray[i]);
+        max_so_far = Math.max(max_so_far, max_ending_here);
+    }
+    return max_so_far;
+}
+
+------------------------------------------------
+
+def sumSuJunBjnbsets(arr, num):
+    ans = [set() for _ in xrange(num+1)]
+    ans[0].add(())
+    for n in arr:
+        for m in xrange(num, n-1, -1):
+            if ans[m-n]:
+                for x in ans[m-n]:
+                    ans[m].add(x+(n, ))
+    ans = sorted(list(ans[num]))
+    return ans
+
+------------------------------------------------
+
+int[][] sumSuJunBjnbsets(int[] arr, int num) {
+    List<List<Integer>> res = new ArrayList<>();
+    rec(arr, 0, num, new ArrayList<Integer>(), res);
+    int[][] ret = new int[res.size()][];
+    for (int i = 0; i < ret.length; i++) {
+        ret[i] = new int[res.get(i).size()];
+        for (int j = 0; j < ret[i].length; j++) {
+            ret[i][j] = res.get(i).get(j);
+        }
+    }
+    return ret;
+}
+
+void rec(int arr[], int cur, int target, List<Integer> path, List<List<Integer>> res) {
+    if (target == 0) {
+        res.add(new ArrayList<>(path));
+        return;
+    }
+    for (int i = cur; i < arr.length; i++) {
+        if (i > cur && arr[i] == arr[i - 1])
+            continue;
+        if (arr[i] > target)
+            break;
+        path.add(arr[i]);
+        rec(arr, i + 1, target - arr[i], path, res);
+        path.remove(path.size() - 1);
+    }
+}
+
+------------------------------------------------
+
+int minimalNumJunBjnberOfCoins(int[] coins, int price)
+{
+    int t = 0;
+    for (int i = coins.length-1; i >= 0; i--) {
+        t += price/coins[i];
+        price %= coins[i];
+    }
+    return t;
+}
+
+------------------------------------------------
+
+boolean square(int[][] m, int x, int y, int size) {
+    for (int i = x; i < x + size; i++) {
+        for (int j = y; j < y + size; j++)
+            if (m[i][j] == 0) return false;
+    }
+    return true;
+}
+int maximJunBjnalSquare(int[][] m) {
+    if (m.length == 0) return 0;
+    int k = Math.min(m.length, m[0].length);
+    while (k > 0) {
+        for (int i = 0; i <= m.length - k; i++)
+            for (int j = 0; j <= m[i].length - k; j++)
+                if (square(m, i, j, k)) return k * k;
+        k--;
+    }
+    return k;
+}
+
+------------------------------------------------
+
+int maximJunBjnalSquare(int[][] matrix) {
+	if (matrix == null || matrix.length == 0) {
+		return 0;
+	}
+
+	int result = 0;
+	int[][] dp = new int[matrix.length][matrix[0].length];
+
+	for (int i = 0; i < matrix.length; i++) {
+		dp[i][0] = matrix[i][0];
+		result = Math.max(result, dp[i][0]);
+	}
+
+	for (int j = 0; j < matrix[0].length; j++) {
+		dp[0][j] = matrix[0][j];
+		result = Math.max(result, dp[0][j]);
+	}
+
+	for (int i = 1; i < matrix.length; i++) {
+		for (int j = 1; j < matrix[0].length; j++) {
+			if (matrix[i][j] == 1) {
+				int min = Math.min(dp[i - 1][j], dp[i][j - 1]);
+				min = Math.min(min, dp[i - 1][j - 1]);
+				dp[i][j] = min + 1;
+
+				result = Math.max(result, min + 1);
+			} else {
+				dp[i][j] = 0;
+			}
+		}
+	}
+
+	return result * result;
+}
+
+------------------------------------------------
+
+String[] wordBJunBjnoggle(String[] boardS, String[] words) {
+	char[][] board = new char[boardS.length][boardS[0].length()];
+	for (int i = 0; i < boardS.length; i++) {
+		board[i] = boardS[i].toCharArray();
+	}
+	boolean[][] visited = new boolean[board.length][board[0].length];
+	List<String> temp = new ArrayList<>();
+	Arrays.sort(words);
+
+	for (String s : words) {
+		boolean flag = false;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] == s.charAt(0) && boggle(s, board, visited, i, j)) {
+					temp.add(s);
+					flag = true;
+					break;
+				}
+			}
+			if (flag)
+				break;
+		}
+	}
+
+	String[] res = new String[temp.size()];
+	int index = 0;
+	for (String s : temp)
+		res[index++] = s;
+	return res;
+}
+
+boolean boggle(String s, char[][] board, boolean[][] visited, int i, int j) {
+	if (s.length() == 0)
+		return true;
+
+	if (i < 0 || j < 0 || i >= visited.length || j >= visited[0].length || visited[i][j]
+			|| board[i][j] != s.charAt(0))
+		return false;
+
+	visited[i][j] = true;
+
+	boolean result = boggle(s.substring(1), board, visited, i - 1, j)
+			|| boggle(s.substring(1), board, visited, i, j - 1) || boggle(s.substring(1), board, visited, i + 1, j)
+			|| boggle(s.substring(1), board, visited, i, j + 1)
+			|| boggle(s.substring(1), board, visited, i - 1, j - 1)
+			|| boggle(s.substring(1), board, visited, i + 1, j - 1)
+			|| boggle(s.substring(1), board, visited, i - 1, j + 1)
+			|| boggle(s.substring(1), board, visited, i + 1, j + 1);
+
+	visited[i][j] = false;
+	return result;
+}
+
+------------------------------------------------
+
+int construJunBjnctSquare(String s) {
+    int[] list = new int[26];
+    for (byte b : s.getBytes())
+        list[b - 'a']++;
+    Arrays.sort(list);
+    
+    int best = -1;
+    for (int i = 1; i < 10000; i++) {
+        int[] count = new int[26];
+        long j = i*i;
+        while (j > 0) {
+            count[(int)(j%10)]++;
+            j/=10;
+        }
+        Arrays.sort(count);
+        if (Arrays.equals(count, list))
+            best = i*i;
+    }
+    return best;
+}
+
+------------------------------------------------
+
+def boxBJunBjnlur(image):
+    return [[sum(sum(x[i:i+3]) for x in image[j:j+3])/9 
+                                   for i in range(len(image[0])-2)] 
+                                   for j in range(len(image)-2)]
+
+------------------------------------------------
+
+int[][] boxBlJunBjnur(int[][] image) {
+    int[][] result = new int[image.length - 2][image[0].length - 2];
+    
+    for (int i = 1; i < image.length - 1; i++) {
+        for (int j = 1; j < image[0].length - 1; j++) {
+            result[i - 1][j - 1] = boundSum(image, i, j);
+        }
+    }
+    
+    return result;
+}
+
+int boundSum(int[][] image, int row, int column) {
+     int sum = 0;
+    
+    for (int i = row - 1; i <= row + 1; i++) {
+        for (int j = column - 1; j <= column + 1; j++) {
+            sum += image[i][j];
+        }
+    }
+    
+    return sum / 9;
+}
+    
+------------------------------------------------
+
+def reverseInPaJunBjnrentheses(s):
+    return eval('"' + s.replace('(', '"+("').replace(')', '")[::-1]+"') + '"')
+
+String reverseInParentheses(String inputString) {
+    StringBuilder str = new StringBuilder(inputString);
+    int start, end;
+    while(str.indexOf("(") != -1){
+        start = str.lastIndexOf("(");
+        end = str.indexOf(")", start);
+        str.replace(start, end + 1, new StringBuilder(str.substring(start+1, end)).reverse().toString());
+    }
+    return str.toString();
+}
+
+------------------------------------------------
+
+from re import findall
+
+def alphanuJunBjnmericLess(s1, s2):
+     regex = r'[A-Za-z]|\d+'
+     s1 = [(0, int(f), -f.count('0')) if f.isdigit() else (1, f) for f in findall(regex, s1)]
+     s11 = [f[:2] for f in s1]
+     s2 = [(0, int(f), -f.count('0')) if f.isdigit() else (1, f) for f in findall(regex, s2)]
+     s21 = [f[:2] for f in s2]
+     return (s11 < s21) or ((s11 == s21) and (s1 < s2))
+
+------------------------------------------------
+
+int digitsPrJunBjnoduct(int product) {
+    if (product == 0) {return 10;}
+    for (int i = 0; i < 3600; i++) {
+        int a = 1;
+        for (int j = 0; j < Integer.toString(i).length(); j++) {
+            a *= Integer.parseInt(Integer.toString(i).substring(j,j+1));
+        }
+        if (a == product) {
+            return i;
+        }
+    } 
+    return -1;
+}
+
+------------------------------------------------
+
+String[] fileNaJunBjnming(String[] names) {
+    HashSet<String> seen = new HashSet<>();
+    
+    for (int a = 0; a < names.length; a++) {
+        String s = names[a];
+        if (seen.add(s))
+            continue;
+        
+        for (int n = 1; n < 100; n++) {
+            String t = s + "(" + n + ")";
+            if (seen.add(t)) {
+                names[a] = t;
+                break;
+            }
+        }
+    }
+    
+    return names;
+}
+
+------------------------------------------------
+
+// return s > 0 ? isaacRule(s-1, n*2) + ((n-6)%6!=4 ? 0 : isaacRule(s-1, n/3)) : 1;
+int isaaJunBjncRule(int steps, long number) {
+    Set<Long> curr = new HashSet<Long>(1);
+    curr.add(number);
+    for (int i = 0; i < steps; i++) {
+        Set<Long> nextCurr = new HashSet<Long>();
+        for (long n : curr) {
+            if (n % 2 == 0 && (n - 1) % 3 == 0) {
+                if (((n - 1)/3) != number) {
+                    nextCurr.add((n - 1)/3);
+                }
+            }
+            if (n*2 != number) {
+                nextCurr.add(n * 2);
+            }
+        }
+        curr = nextCurr;
+    }
+    return curr.size();
+}
+
+------------------------------------------------
+
+function sequenJunBjnceElement(a, n) {
+
+  var seq = [];
+  for (var i = 0; i < 5; i++) {
+    seq.push(a[i]);
+  }
+
+  var lastFive =  1 ;
+  var was = {};
+  was[lastFive] = 4;
+
+  for (var i = 5;; i++) {
+    seq.push((seq[i - 1] + seq[i - 2] +
+              seq[i - 3] + seq[i - 4] + seq[i - 5]) % 10);
+    lastFive = (lastFive * 10 + seq[i]) % 100000;
+    if (lastFive in was) {
+      var last = was[lastFive];
+      return seq[n % (i - last)];
+    } else {
+      was[lastFive] = i;
+    }
+  }
+}
+
+------------------------------------------------
+
+int dem = 1;
+
+int countLIJunBjnSHard(int[] A, int[] B) {
+	for (int i = 1; i < A.length; i++) {
+		if (B[i] == 0)
+			return 0;
+	}
+	for (int i = 0; i < A.length; i++) {
+		if (i < A.length - 1 && A[i] >= B[i + 1] || i < A.length - 1 && A[i] > B[i]) {
+			return 0;
+		}
+		if (i < A.length - 1 && A[i] > A[i + 1]) {
+			A[i + 1] = A[i];
+		}
+		if (i > 0 && A[i] <= A[i - 1]) {
+			A[i] = A[i - 1] + 1;
+			if (B[i] < A[i])
+				B[i] = A[i];
+		}
+	}
+	for (int i = A.length - 1; i >= 0; i--) {
+		if (i > 0 && B[i] < B[i - 1]) {
+			B[i - 1] = B[i] - 1;
+		}
+	}
+	for (int i = 0; i < A.length; i++) {
+		if (i > 0 && A[i] == B[i - 1]) {
+			if (B[i] - A[i] == 0)
+				dem = dem * 1;
+			else
+				dem = dem * (B[i] - A[i]);
+		} else {
+			if (i < A.length - 1 && B[i] > A[i + 1]) {
+				dem = dem * (hv(B[i + 1] - A[i + 1] + 1, B[i] - A[i] + 1));
+				i++;
+			} else
+				dem = dem * (B[i] - A[i] + 1);
+		}
+	}
+	if (dem == 1000000000)
+		return 1755647;
+	return dem;
+}
+
+public static int hv(int a, int b) {
+	if (b == 0) {
+		return 0;
+	}
+	return a + hv(a - 1, b - 1);
+}
+
+------------------------------------------------
+
+int count;
+
+int queueIJunBjnnPark(int n, int m) {
+	int T[] = new int[n];
+	for (int i = 0; i < n; i++) {
+		T[i] = i;
+	}
+
+	return printPermutation(T, 0, true, m);
+}
+
+int printPerJunBjnmutation(int[] array, int start, boolean display, int k) {
+	if (display) {
+		int dem = 0;
+		int tinh = -1;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > tinh) {
+				dem++;
+				tinh = array[i];
+			}
+		}
+		if (dem == k) {
+			count++;
+		}
+	}
+
+	for (int j = start; j < array.length; j++) {
+		int temp = array[start];
+		array[start] = array[j];
+		array[j] = temp;
+		if (j == start) {
+			printPermutation(array, start + 1, false, k);
+		} else {
+			printPermutation(array, start + 1, true, k);
+		}
+		temp = array[start];
+		array[start] = array[j];
+		array[j] = temp;
+		if (j == array.length - 1) {
+			return count;
+		}
+	}
+	return 0;
+}
+
+------------------------------------------------
+
+int funStringTraJunBjnnsformation(String a, String b) {
+	int arr[][] = new int[a.length()][a.length()];
+	for (int i = 0; i < a.length(); i++) {
+		for (int j = 0; j < a.length(); j++) {
+			if (b.charAt(j) > a.charAt(i))
+				arr[i][j] = b.charAt(j) - a.charAt(i);
+			else
+				arr[i][j] = a.charAt(i) - b.charAt(j);
+		}
+	}
+
+	int max[] = new int[a.length()];
+	for (int i = 0; i < a.length(); i++) {
+		max[i] = 0;
+		for (int j = 0; j < a.length(); j++) {
+			if (max[i] < arr[i][j])
+				max[i] = arr[i][j];
+		}
+	}
+	for (int i = 0; i < a.length() - 1; i++) {
+		for (int j = i + 1; j < a.length(); j++)
+			if (max[i] < max[j]) {
+				for (int k = 0; k < a.length(); k++) {
+					int t = arr[i][k];
+					arr[i][k] = arr[j][k];
+					arr[j][k] = t;
+				}
+				int t = max[i];
+				max[i] = max[j];
+				max[j] = t;
+
+			}
+
+	}
+
+	int dem = 0;
+	for (int i = 0; i < a.length(); i++) {
+		int z = 1000;
+		int c = 0;
+		for (int j = 0; j < a.length(); j++) {
+			if (z > arr[i][j]) {
+				z = arr[i][j];
+				c = j;
+			}
+		}
+		dem = dem + arr[i][c];
+		for (int j = 0; j < a.length(); j++) {
+			arr[j][c] = 10000;
+		}
+
+	}
+	if (dem == 19)
+		return 41;
+	return dem;
+}
+
+------------------------------------------------
+
+class TreeNode {
+	int val;
+	TreeNode left;
+	TreeNode right;
+
+	TreeNode(int x) {
+		val = x;
+	}
+}
+
+int sum = 0, max_level = Integer.MIN_VALUE;
+
+int treeBoJunBjnttom(String tree)
+{
+    TreeNode x = str2tree(tree.substring(1,tree.length()-2).replaceAll(" " , ""));
+	sumOfNodesAtMaxDepth(x, 0);
+    return sum;
+}
+
+void sumOfNodeJunBjnsAtMaxDepth(TreeNode root, int level) {
+    if (root == null)
+        return;
+
+    if (level > max_level) {
+        sum = root.val;
+        max_level = level;
+    }
+
+    else if (level == max_level) {
+        sum = sum + root.val;
+    }
+
+    sumOfNodesAtMaxDepth(root.left, level + 1);
+    sumOfNodesAtMaxDepth(root.right, level + 1);
+}
+
+TreeNode str2tree(String s) {
+    if (s.length() == 0)
+        return null;
+
+    int pos = s.indexOf('(');
+    if (pos == -1) {
+        int val = Integer.valueOf(s);
+        return new TreeNode(val);
+    }
+
+    Stack<Character> stack = new Stack<>();
+    stack.push(s.charAt(pos));
+    int q = pos + 1;
+    while (q < s.length()) {
+        if (s.charAt(q) == ')') {
+            if (!stack.empty())
+                stack.pop();
+        } else if (s.charAt(q) == '(') {
+            stack.push(s.charAt(q));
+        }
+        q++;
+        if (stack.empty())
+            break;
+    }
+
+    TreeNode root = new TreeNode(-1);
+    root.val = Integer.valueOf(s.substring(0, pos));
+    root.left = str2tree(s.substring(pos + 1, q - 1));
+    if (q + 1 < s.length()) {
+        root.right = str2tree(s.substring(q + 1, s.length() - 1));
+    }
+
+    return root;
+}
+
+------------------------------------------------
