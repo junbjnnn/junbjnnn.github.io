@@ -12,6 +12,7 @@ numVehicle = 30
 costEachStop = 5000
 holdingCost = 3000
 maxDistance = 9999999
+numberLoopPart2 = 2
 
 depot = None
 orders = None
@@ -95,7 +96,7 @@ def get_data_order_from_excel():
     for i in range(number_of_row):
         o = df_order.loc[i, :]
         obj = Order(o['Order'], o['Address'], o['x'], o['y'], o['Delivery'], o['Pickup'])
-        obj.is_return = random.random() > 0.9
+        obj.prob_return = random.random()
         orders.append(obj)
 
 def get_data_store_from_excel():
@@ -478,7 +479,20 @@ def print_result(vehicles):
         i += 1
     print("Total cost: " + str(fz(xb_update)))
     print("Distance travel: " + str(get_distance_travel(xb_update)) + " km")
-    part2(vehicles)
+
+    for i in range(numberLoopPart2):
+        # Gen random cancel_number
+        cancel_number = random.randint(1, len(orders))
+        # Sort order by prob_return - from max -> min
+        sort_orders = copy.deepcopy(orders).sort(key=lambda o: o.prob_return, reverse=True)
+        # Get id of n order cancel
+        sort_orders = list(map(lambda o: o.idd, sort_orders[:cancel_number]))
+        # Set return for order in vehicles
+        for vehicle in vehicles:
+            for o in vehicle.orders:
+                is_return = o.idd in sort_orders
+        # Run part 2
+        part2(vehicles)
 
 def print_obj(clas, indent=0):
     print(' ' * indent + type(clas).__name__ + ':')
